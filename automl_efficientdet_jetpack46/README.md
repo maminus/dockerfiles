@@ -2,7 +2,13 @@
 * Jetson AGX Xavier
 
 # to be introduced
+* [TensorRT OSS](https://github.com/NVIDIA/TensorRT) build environment
 * [AutoML EfficientDet](https://github.com/google/automl/tree/master/efficientdet) environment
+* user `nvidia` and repositories
+```
+/home/nvidia/TensorRT
+/home/nvidia/automl
+```
 
 # how to run
 1. build docker image
