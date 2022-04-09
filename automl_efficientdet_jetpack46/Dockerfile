@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
     libhdf5-dev \
     libhdf5-serial-dev \
     liblapack-dev \
+    libomp-dev \
+    libopenblas-base \
+    libopenmpi-dev \
     libprotobuf-dev \
     libssl-dev \
     make \
@@ -44,15 +47,17 @@ RUN python3 -m pip install --upgrade pip \
     protobuf \
     pkgconfig \
     pybind11 \
+ && wget https://nvidia.box.com/shared/static/fjtbno0vpo676a25cgvuqc1wty0fkkg6.whl -O torch-1.10.0-cp36-cp36m-linux_aarch64.whl \
  && python3 -m pip install \
     Pillow==8.3.2 \
     "pycuda<2021.1" \
     pytest \
     onnx==1.10.0 \
     onnxruntime==1.8.1 \
-    torch==1.8.1 \
+    torch-1.10.0-cp36-cp36m-linux_aarch64.whl \
  && H5PY_SETUP_REQUIRES=0 python3 -m pip install -U h5py==3.1.0 \
  && python3 -m pip install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v46 tensorflow \
+ && rm torch-1.10.0-cp36-cp36m-linux_aarch64.whl \
  && python3 -m pip cache purge
 
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.3/cmake-3.22.3-linux-aarch64.sh \
